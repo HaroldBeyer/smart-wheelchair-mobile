@@ -6,7 +6,11 @@ class LatestOccurence extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: new BottomNavigationBar(
-          items: [BottomNavigationBarItem(title: Text("Teste"))],
+          items: [
+            BottomNavigationBarItem(
+                title: Text("Teste"), icon: Icon(Icons.map)),
+            BottomNavigationBarItem(title: Text("Teste"), icon: Icon(Icons.map))
+          ],
         ),
         body: Container(
             child: FlutterMap(
