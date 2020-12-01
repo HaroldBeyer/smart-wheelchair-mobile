@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "126792132859",
+    "firebase_url": "https://smart-wheelchair-d4c10.firebaseio.com",
+    "project_id": "smart-wheelchair-d4c10",
+    "storage_bucket": "smart-wheelchair-d4c10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:126792132859:android:fb5ff6562623276f20285e",
+        "android_client_info": {
+          "package_name": "com.example.smart_wheelchair"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "126792132859-065mlirdmcvfe4bag0gfphca0l0mnmvj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAD_XnAxJg9phvCyrimLGpUiMyz1DlE0Gw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "126792132859-065mlirdmcvfe4bag0gfphca0l0mnmvj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
