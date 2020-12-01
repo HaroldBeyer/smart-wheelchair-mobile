@@ -8,8 +8,12 @@ class LatestOccurence extends StatelessWidget {
         bottomNavigationBar: new BottomNavigationBar(
           items: [
             BottomNavigationBarItem(
-                title: Text("Teste"), icon: Icon(Icons.map)),
-            BottomNavigationBarItem(title: Text("Teste"), icon: Icon(Icons.map))
+                title: Text("Ocorrências"), icon: Icon(Icons.map)),
+            BottomNavigationBarItem(
+                title: Text("Última ocorrência"),
+                icon: Icon(Icons.zoom_out_map_sharp)),
+            BottomNavigationBarItem(
+                title: Text("Médico"), icon: Icon(Icons.healing))
           ],
         ),
         body: Container(
