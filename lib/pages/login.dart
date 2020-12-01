@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:smart_wheelchair/pages/latestOccurence.dart';
 
 const users = const {
   'dribbble@gmail.com': '12345',
   'hunter@gmail.com': 'hunter',
+  'haroldochapp@yopmail': 'haroldo'
 };
 
 class LoginScreen extends StatelessWidget {
-  LoginScreen({
-    this.sp
-  });
+  LoginScreen({this.sp});
 
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
@@ -27,6 +27,9 @@ class LoginScreen extends StatelessWidget {
       if (users[data.name] != data.password) {
         return 'Password does not match';
       }
+
+      //fixme => add firebase
+      // sp.setString('uid', data.name);
       return null;
     });
   }
@@ -50,7 +53,7 @@ class LoginScreen extends StatelessWidget {
       onSignup: _authUser,
       onSubmitAnimationCompleted: () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => null,
+          builder: (context) => LatestOccurence(),
         ));
       },
       onRecoverPassword: _recoverPassword,
