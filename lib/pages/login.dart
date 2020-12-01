@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 const users = const {
   'dribbble@gmail.com': '12345',
@@ -7,6 +8,14 @@ const users = const {
 };
 
 class LoginScreen extends StatelessWidget {
+  LoginScreen({
+    this.sp
+  });
+
+  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
+  SharedPreferences sp;
+
   Duration get loginTime => Duration(milliseconds: 2250);
 
   Future<String> _authUser(LoginData data) {
@@ -35,7 +44,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlutterLogin(
-      title: 'ECORP',
+      title: 'Smart Wheelchair',
       logo: 'assets/images/ecorp-lightblue.png',
       onLogin: _authUser,
       onSignup: _authUser,
