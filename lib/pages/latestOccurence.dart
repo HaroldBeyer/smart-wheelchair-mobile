@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong/latlong.dart';
 
-class LatestOccurence extends StatelessWidget {
+class LatestOccurence extends StatefulWidget {
+  @override
+  _LatestOccurenceState createState() => _LatestOccurenceState();
+}
+
+class _LatestOccurenceState extends State<LatestOccurence> {
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: new BottomNavigationBar(

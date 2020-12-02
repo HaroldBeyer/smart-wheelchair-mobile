@@ -55,7 +55,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlutterLogin(
       title: 'Smart Wheelchair',
-      logo: 'assets/images/ecorp-lightblue.png',
+      logo: 'assets/images/wheelchair.png',
       onLogin: _loginUser,
       onSignup: _createUser,
       onSubmitAnimationCompleted: () {
