@@ -15,11 +15,8 @@ class _LatestOccurenceState extends State<LatestOccurence> {
   OccurenceDB occurenceDB = new OccurenceDB();
 
 /**starts with a defined value */
-  LatLng location = new LatLng(-12.9704, -38.5124);
-  Occurence occurence = new Occurence(
-      day: "23/10/2020",
-      hour: "18:30",
-      location: new LatLng(-12.9704, -38.5124));
+  LatLng location;
+  Occurence occurence;
 
   @override
   void initState() {
@@ -41,37 +38,48 @@ class _LatestOccurenceState extends State<LatestOccurence> {
           ],
         ),
         body: Container(
-            child: FlutterMap(
-          options: MapOptions(
-            center: this.location,
-            zoom: 13.0,
-          ),
-          layers: [
-            TileLayerOptions(
-                urlTemplate:
-                    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                subdomains: ['a', 'b', 'c']),
-            MarkerLayerOptions(
-              markers: [
-                Marker(
-                  width: 80.0,
-                  height: 80.0,
-                  point: this.location,
-                  builder: (ctx) => new Container(
-                    child: IconButton(
-                        icon: Icon(Icons.place),
-                        onPressed: () => showDialog<String>(
-                            context: context,
-                            builder: (BuildContext context) => OccurenceWidget(
-                                occurence: this.occurence,
-                                onClosedOccurence: () =>
-                                    Navigator.pop(context)))),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        )));
+            child: location != null
+                ? FlutterMap(
+                    options: MapOptions(
+                      center: this.location,
+                      zoom: 13.0,
+                    ),
+                    layers: [
+                      TileLayerOptions(
+                          urlTemplate:
+                              "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                          subdomains: ['a', 'b', 'c']),
+                      MarkerLayerOptions(
+                        markers: [
+                          Marker(
+                            width: 80.0,
+                            height: 80.0,
+                            point: this.location,
+                            builder: (ctx) => new Container(
+                              child: IconButton(
+                                  icon: Icon(Icons.place),
+                                  onPressed: () => showDialog<String>(
+                                      context: context,
+                                      builder: (BuildContext context) =>
+                                          OccurenceWidget(
+                                              occurence: this.occurence,
+                                              onClosedOccurence: () =>
+                                                  Navigator.pop(context)))),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  )
+                : Dialog(
+                    child: new Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        new CircularProgressIndicator(),
+                        new Text("Loading"),
+                      ],
+                    ),
+                  )));
   }
 
   void loadLatestOccurence() async {
