@@ -27,6 +27,7 @@ dependencies:
   flutter_map: ^0.10.1+1
   latlng: ^0.0.2
   firebase_core: ^0.5.2+1
+  firebase_database: ^4.3.0
   flutter:
     sdk: flutter
 
