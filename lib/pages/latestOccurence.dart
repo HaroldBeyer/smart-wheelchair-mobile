@@ -4,6 +4,7 @@ import 'package:latlong/latlong.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smart_wheelchair/db/occurrenceDB.dart';
 import 'package:smart_wheelchair/models/occurrence.dart';
+import 'package:smart_wheelchair/widgets/bottomNavigationBar.widget.dart';
 import 'package:smart_wheelchair/widgets/occurence.widget.dart';
 
 class LatestOccurence extends StatefulWidget {
@@ -26,17 +27,7 @@ class _LatestOccurenceState extends State<LatestOccurence> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: new BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(
-                title: Text("Última ocorrência"),
-                icon: Icon(Icons.zoom_out_map_sharp)),
-            BottomNavigationBarItem(
-                title: Text("Ocorrências"), icon: Icon(Icons.map)),
-            BottomNavigationBarItem(
-                title: Text("Médico"), icon: Icon(Icons.healing))
-          ],
-        ),
+        bottomNavigationBar: CustomNavigationBar(),
         body: Container(
             child: location != null
                 ? FlutterMap(
