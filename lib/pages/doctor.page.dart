@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:smart_wheelchair/pages/login.page.dart';
 import 'package:smart_wheelchair/widgets/bottomNavigationBar.widget.dart';
 
 class DoctorPage extends StatelessWidget {
@@ -37,9 +39,18 @@ class DoctorPage extends StatelessWidget {
             ),
             Container(
               child: Icon(Icons.phone),
-              height: 150,
+              height: 100,
               width: 350,
             ),
+            IconButton(
+              icon: Icon(Icons.logout),
+              onPressed: () => {
+                SharedPreferences.getInstance().then((instance) => {
+                      instance.remove('user'),
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreenPage()))
+                    })
+              },
+            )
           ],
         ),
       ),

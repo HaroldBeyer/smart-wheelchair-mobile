@@ -31,7 +31,7 @@ class _OccurencesPageState extends State<OccurencesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: CustomNavigationBar(
-        pos: 2,
+        pos: 1,
       ),
       body: Container(
         child: position != null

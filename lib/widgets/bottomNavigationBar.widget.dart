@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smart_wheelchair/pages/doctor.page.dart';
 import 'package:smart_wheelchair/pages/latest_occurence.page.dart';
+import 'package:smart_wheelchair/pages/login.page.dart';
 import 'package:smart_wheelchair/pages/occurrences.page.dart';
 
 class CustomNavigationBar extends StatelessWidget {
@@ -15,7 +17,7 @@ class CustomNavigationBar extends StatelessWidget {
           ? [
               lastOccurrenceBarItem(context),
               occurrencesBarItem(context),
-              doctorBarItem(context)
+              doctorBarItem(context),
             ]
           : this.pos == 1
               ? [
@@ -64,6 +66,24 @@ class CustomNavigationBar extends StatelessWidget {
           print("Pressed!"),
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => LatestOccurencePage()))
+        },
+      ),
+    );
+  }
+
+    BottomNavigationBarItem logout(BuildContext context) {
+    return BottomNavigationBarItem(
+      title: Text("Logout"),
+      icon: IconButton(
+        icon: Icon(Icons.logout),
+        onPressed: () => {
+    SharedPreferences.getInstance().then((instance) => {
+              
+              instance.remove('user'),
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => LoginScreenPage()))
+            
+              }),
         },
       ),
     );
