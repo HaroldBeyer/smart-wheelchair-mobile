@@ -53,6 +53,7 @@ class LoginScreenPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    checkIfLogged(context);
     return FlutterLogin(
       title: 'Smart Wheelchair',
       logo: 'assets/images/wheelchair.png',
@@ -65,5 +66,12 @@ class LoginScreenPage extends StatelessWidget {
       },
       onRecoverPassword: _recoverPassword,
     );
+  }
+
+  void checkIfLogged(BuildContext context) async {
+    if (this.sp == null) this.sp = await SharedPreferences.getInstance();
+    if (this.sp.getString('user') != null)
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => LatestOccurencePage()));
   }
 }

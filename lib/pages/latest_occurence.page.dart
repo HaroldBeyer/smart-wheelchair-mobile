@@ -27,7 +27,9 @@ class _LatestOccurencePageState extends State<LatestOccurencePage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: CustomNavigationBar(),
+        bottomNavigationBar: CustomNavigationBar(
+          pos: 0,
+        ),
         body: Container(
             child: location != null
                 ? FlutterMap(
