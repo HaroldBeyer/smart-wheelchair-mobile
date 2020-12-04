@@ -26,16 +26,26 @@ class DoctorPage extends StatelessWidget {
               // alignment: Alignment.center,
             ),
             SizedBox(
-              height: 50,
+              height: 10,
             ),
             Container(
+              height: 100,
+              width: 300,
+              decoration: BoxDecoration(
+                 color: Colors.yellow,
+                  border: Border.all(
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
               child: Text(
                 "55 (71) 99999-9999",
-                style: TextStyle(fontSize: 24, backgroundColor: Colors.white),
+                style: TextStyle(
+                    fontSize: 36,
+                    color: Colors.purple),
+                    textAlign: TextAlign.center,
               ),
             ),
             SizedBox(
-              height: 50,
+              height: 20,
             ),
             Container(
               child: Icon(Icons.phone),
@@ -47,7 +57,10 @@ class DoctorPage extends StatelessWidget {
               onPressed: () => {
                 SharedPreferences.getInstance().then((instance) => {
                       instance.remove('user'),
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreenPage()))
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginScreenPage()))
                     })
               },
             )
