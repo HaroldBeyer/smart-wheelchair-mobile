@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:smart_wheelchair/pages/doctor.page.dart';
 import 'package:smart_wheelchair/pages/latest_occurence.page.dart';
+import 'package:smart_wheelchair/pages/occurrences.page.dart';
 
 class CustomNavigationBar extends StatelessWidget {
   int pos;
@@ -10,24 +11,24 @@ class CustomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      items: this.pos == 0 ?  [
-        lastOccurrenceBarItem(context),
-        occurrencesBarItem(),
-        doctorBarItem(context)
-      ] : this.pos == 1 ?
-       [
-         occurrencesBarItem(),
-        doctorBarItem(context), 
-        lastOccurrenceBarItem(context)
-        ]
-        : 
-       [ 
-         doctorBarItem(context),
-          lastOccurrenceBarItem(context), 
-          occurrencesBarItem()
-          ],
+      items: this.pos == 0
+          ? [
+              lastOccurrenceBarItem(context),
+              occurrencesBarItem(context),
+              doctorBarItem(context)
+            ]
+          : this.pos == 1
+              ? [
+                  occurrencesBarItem(context),
+                  doctorBarItem(context),
+                  lastOccurrenceBarItem(context)
+                ]
+              : [
+                  doctorBarItem(context),
+                  lastOccurrenceBarItem(context),
+                  occurrencesBarItem(context)
+                ],
     );
-
   }
 
   BottomNavigationBarItem doctorBarItem(BuildContext context) {
@@ -42,9 +43,16 @@ class CustomNavigationBar extends StatelessWidget {
         ));
   }
 
-  BottomNavigationBarItem occurrencesBarItem() {
+  BottomNavigationBarItem occurrencesBarItem(BuildContext context) {
     return BottomNavigationBarItem(
-        title: Text("Ocorrências"), icon: Icon(Icons.map));
+      title: Text("Ocorrências"),
+      icon: IconButton(
+          icon: Icon(Icons.map),
+          onPressed: () => {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => OccurencesPage()))
+              }),
+    );
   }
 
   BottomNavigationBarItem lastOccurrenceBarItem(BuildContext context) {

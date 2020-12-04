@@ -96,4 +96,6 @@ class _LatestOccurencePageState extends State<LatestOccurencePage> {
       this.location = location;
     });
   }
+
+
 }
