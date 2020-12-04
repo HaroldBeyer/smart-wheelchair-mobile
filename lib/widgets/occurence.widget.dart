@@ -11,21 +11,22 @@ class OccurenceWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SimpleDialog(
       children: <Widget>[
+        SizedBox(height: 20,),
         Icon(Icons.timer),
         Text(
           this.occurence.hour,
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(
+            fontSize: 16,
+          ),
+          textAlign: TextAlign.center,
         ),
-        Text(
-          this.occurence.day,
-          style: TextStyle(fontSize: 12),
-        ),
-        ListTile(
-          title: Text("Fechar"),
-          onTap: onClosedOccurence,
+        SizedBox(height: 10,),
+        IconButton(
+          icon: Icon(Icons.close),
+          onPressed: onClosedOccurence,
         )
       ],
-      title: Text(this.occurence.day),
+      title: Text(this.occurence.day, textAlign: TextAlign.center),
     );
   }
 }
