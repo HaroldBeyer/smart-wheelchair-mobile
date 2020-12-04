@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:smart_wheelchair/pages/latestOccurence.dart';
+import 'package:smart_wheelchair/pages/latest_occurence.page.dart';
 import 'package:smart_wheelchair/utils/auth.dart';
 
 const users = const {
@@ -10,7 +10,7 @@ const users = const {
   'haroldochapp@yopmail': 'haroldo'
 };
 
-class LoginScreen extends StatelessWidget {
+class LoginScreenPage extends StatelessWidget {
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
   SharedPreferences sp;
@@ -60,7 +60,7 @@ class LoginScreen extends StatelessWidget {
       onSignup: _createUser,
       onSubmitAnimationCompleted: () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => LatestOccurence(),
+          builder: (context) => LatestOccurencePage(),
         ));
       },
       onRecoverPassword: _recoverPassword,

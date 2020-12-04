@@ -7,12 +7,12 @@ import 'package:smart_wheelchair/models/occurrence.dart';
 import 'package:smart_wheelchair/widgets/bottomNavigationBar.widget.dart';
 import 'package:smart_wheelchair/widgets/occurence.widget.dart';
 
-class LatestOccurence extends StatefulWidget {
+class LatestOccurencePage extends StatefulWidget {
   @override
-  _LatestOccurenceState createState() => _LatestOccurenceState();
+  _LatestOccurencePageState createState() => _LatestOccurencePageState();
 }
 
-class _LatestOccurenceState extends State<LatestOccurence> {
+class _LatestOccurencePageState extends State<LatestOccurencePage> {
   OccurenceDB occurenceDB = new OccurenceDB();
 
 /**starts with a defined value */

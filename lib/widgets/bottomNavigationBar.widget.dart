@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:smart_wheelchair/pages/latestOccurence.dart';
+import 'package:smart_wheelchair/pages/latest_occurence.page.dart';
 
 class CustomNavigationBar extends StatelessWidget {
   @override
@@ -12,8 +12,10 @@ class CustomNavigationBar extends StatelessWidget {
           icon: IconButton(
             icon: Icon(Icons.zoom_out_map_sharp),
             onPressed: () => {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LatestOccurence()))
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => LatestOccurencePage()))
             },
           ),
         ),

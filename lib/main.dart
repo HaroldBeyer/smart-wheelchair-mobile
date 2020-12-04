@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:smart_wheelchair/pages/login.dart';
+import 'package:smart_wheelchair/pages/login.page.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               primarySwatch: Colors.purple,
             ),
-            home: LoginScreen(),
+            home: LoginScreenPage(),
             debugShowCheckedModeBanner: false,
           );
         }
